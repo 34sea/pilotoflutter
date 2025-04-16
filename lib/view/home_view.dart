@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pilotoflutter/components/menu_flow.dart';
 import '../components/meu_menu.dart';
+import '../view/images_view.dart';
 
 class HomeView extends StatelessWidget{
   @override
@@ -8,6 +10,7 @@ class HomeView extends StatelessWidget{
       appBar: AppBar(
         title: Text('MVVM APP'),
       ),
+      endDrawer: MenuFlow(),
       body: MainPage()
     );
   }
@@ -19,8 +22,8 @@ class MainPage extends StatelessWidget{
     return Column(
       children: [
         MeuMenu(),
-        Image.asset('assets/logo.png', width: 100, height: 100)
-
+        // Image.asset('assets/imgs/anyimage.jpg', width: 100, height: 100)
+       
       ],
     );
   }
