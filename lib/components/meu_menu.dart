@@ -11,6 +11,7 @@ import 'package:pilotoflutter/view/post_page_view.dart';
 import 'package:pilotoflutter/view/table_material.dart';
 import 'package:pilotoflutter/view/table_photo_view.dart';
 import 'package:pilotoflutter/view/table_post_view.dart';
+import 'package:pilotoflutter/view/usuario_view.dart';
 import '../view/lista_view.dart';
 import '../view/post_view.dart';
 
@@ -171,6 +172,17 @@ class MeuMenu extends StatelessWidget {
               },
           child: Text("PostViewModel"),
         ),
+
+        TextButton(
+          onPressed:
+              () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UsuarioView()),
+                ),
+              },
+          child: Text("Usuario"),
+        ),  
       ],
     );
   }

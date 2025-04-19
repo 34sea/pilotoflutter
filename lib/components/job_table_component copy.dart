@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 import 'package:pilotoflutter/model/job_model.dart';
 import 'package:pilotoflutter/model/move_view.dart';
 import 'package:pilotoflutter/utils/colors_utils.dart';
-
-import 'package:flutter/material.dart';
 
 class JobTableComponent extends StatefulWidget {
   const JobTableComponent({super.key});
@@ -189,7 +189,6 @@ class _JobTableComponentState extends State<JobTableComponent> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(
-                width: double.infinity,
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
@@ -201,14 +200,15 @@ class _JobTableComponentState extends State<JobTableComponent> {
                   ],
                 ),
                 child: DataTable(
-                  
                   headingRowColor: MaterialStateColor.resolveWith(
                     (states) => ColorsUtils.secondaryColor,
                   ),
                   columns: const [
-                   
                     DataColumn(
-                        label: Text('Container',
+                        label: Text('Prio',
+                            style: TextStyle(fontWeight: FontWeight.bold))),
+                    DataColumn(
+                        label: Text('Job',
                             style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
                         label: Text('Type',
@@ -244,6 +244,7 @@ class _JobTableComponentState extends State<JobTableComponent> {
                         return rowColor;
                       }),
                       cells: [
+                        DataCell(Text(job['Prio']!)),
                         DataCell(Text(job['Job']!)),
                         DataCell(Text(job['Type']!)),
                         DataCell(Text(job['Truck']!)),
@@ -259,7 +260,6 @@ class _JobTableComponentState extends State<JobTableComponent> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                   
                                         MoveView(items: JobModel.fromMap(job)),
                                   ),
                                 );
@@ -281,9 +281,29 @@ class _JobTableComponentState extends State<JobTableComponent> {
                                 ],
                               ),
                             ),
-
-                  
-                  
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                print("No present");
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.redAccent,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  elevation: 0),
+                              child: Row(
+                                // mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  Text('Not present'),
+                                  // SizedBox(width: 5),
+                                  // Icon(Icons.arrow_forward),
+                                ],
+                              ),
+                            ),
                           ],
                         )
                             // ElevatedButton(
