@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
-import 'package:pilotoflutter/model/job_model.dart';
-import 'package:pilotoflutter/model/move_view.dart';
-import 'package:pilotoflutter/utils/colors_utils.dart';
-
 import 'package:flutter/material.dart';
 
 class JobTableComponent extends StatefulWidget {
@@ -18,111 +14,56 @@ class _JobTableComponentState extends State<JobTableComponent> {
 
   final List<Map<String, String>> _allJobs = [
     {
-      'Prio': '1',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
+      'Prio': 'B1.121B',
+      'Job': 'ABCU1234567',
+      'Type': 'Delivery',
+      'Truck': 'MMP-432-88',
+      'Location': '1',
       'Area': 'B3',
       'Age': '126min',
       'Distance': '250m',
       'Action': 'Accept'
     },
     {
-      'Prio': '2',
-      'Job': 'ZBS',
+      'Prio': 'MMP-432-88',
+      'Job': 'BLPU1234567',
       'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
+      'Truck': 'C1.121B',
+      'Location': '0',
       'Area': 'B3',
       'Age': '50',
       'Distance': '20m',
       'Action': 'Accept'
     },
     {
-      'Prio': '3',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
+      'Prio': 'D4.121B',
+      'Job': 'XHUK1234567',
+      'Type': 'Load',
+      'Truck': 'TTR',
+      'Location': '2',
       'Area': 'B3',
       'Age': '126min',
       'Distance': '150m',
       'Action': 'Accept'
     },
     {
-      'Prio': '4',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
+      'Prio': 'TTR',
+      'Job': 'MSKU1234567',
+      'Type': 'Discharge',
+      'Truck': 'IMPORT',
+      'Location': '0',
       'Area': 'B3',
       'Age': '126min',
       'Distance': '150m',
       'Action': 'Accept'
     },
     {
-      'Prio': '5',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
+      'Prio': 'B1.121B',
+      'Job': 'ABCU1234567',
+      'Type': 'Delivery',
+      'Truck': 'MMP-432-88',
+      'Location': '1',
       'Area': 'B3',
-      'Age': '126min',
-      'Distance': '150m',
-      'Action': 'Accept'
-    },
-    {
-      'Prio': '6',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
-      'Area': 'B3',
-      'Age': '126min',
-      'Distance': '250m',
-      'Action': 'Accept'
-    },
-    {
-      'Prio': '7',
-      'Job': 'ZBS',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
-      'Area': 'B4',
-      'Age': '50',
-      'Distance': '20m',
-      'Action': 'Accept'
-    },
-    {
-      'Prio': '8',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
-      'Area': 'B3',
-      'Age': '126min',
-      'Distance': '150m',
-      'Action': 'Accept'
-    },
-    {
-      'Prio': '9',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
-      'Area': 'B3',
-      'Age': '126min',
-      'Distance': '150m',
-      'Action': 'Accept'
-    },
-    {
-      'Prio': '10',
-      'Job': 'XYZ',
-      'Type': 'Receive',
-      'Truck': 'ABC123',
-      'Location': 'B3-289-3',
-      'Area': 'B5',
       'Age': '126min',
       'Distance': '150m',
       'Action': 'Accept'
@@ -134,6 +75,7 @@ class _JobTableComponentState extends State<JobTableComponent> {
   @override
   void initState() {
     super.initState();
+
     _filteredJobs = _allJobs;
     _searchController.addListener(_filterJobs);
   }
@@ -187,10 +129,10 @@ class _JobTableComponentState extends State<JobTableComponent> {
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
+              // scrollDirection: Axis.horizontal,
               child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(8.0),
+                width: (MediaQuery.of(context).size.width),
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
@@ -201,32 +143,27 @@ class _JobTableComponentState extends State<JobTableComponent> {
                   ],
                 ),
                 child: DataTable(
-                  
-                  headingRowColor: MaterialStateColor.resolveWith(
-                    (states) => ColorsUtils.secondaryColor,
-                  ),
                   columns: const [
-                   
-                    DataColumn(
-                        label: Text('Container',
-                            style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
                         label: Text('Type',
                             style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
-                        label: Text('Truck',
+                        label: Text('Container',
                             style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
-                        label: Text('Location',
+                        label: Text('From',
                             style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
-                        label: Text('Area',
+                        label: Text('To',
                             style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
-                        label: Text('Age',
+                        label: Text('Time',
                             style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
                         label: Text('Distance',
+                            style: TextStyle(fontWeight: FontWeight.bold))),
+                    DataColumn(
+                        label: Text('Shifts',
                             style: TextStyle(fontWeight: FontWeight.bold))),
                     DataColumn(
                         label: Text('Action',
@@ -244,32 +181,28 @@ class _JobTableComponentState extends State<JobTableComponent> {
                         return rowColor;
                       }),
                       cells: [
-                        DataCell(Text(job['Job']!)),
                         DataCell(Text(job['Type']!)),
+                        DataCell(Text(job['Job']!)),
+                        DataCell(Text(job['Prio']!)),
                         DataCell(Text(job['Truck']!)),
-                        DataCell(Text(job['Location']!)),
-                        DataCell(Text(job['Area']!)),
+                        
+                        
                         DataCell(Text(job['Age']!)),
-                        DataCell(Text(job['Distance']!)),
+                         DataCell(Text(job['Distance']!)),
+                        DataCell(Text(job['Location']!)),
+                       
                         DataCell(Row(
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                   
-                                        MoveView(items: JobModel.fromMap(job)),
-                                  ),
-                                );
+                              
                               },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   foregroundColor:
                                       Theme.of(context).colorScheme.primary,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(32),
                                   ),
                                   elevation: 1),
                               child: Row(
@@ -281,9 +214,6 @@ class _JobTableComponentState extends State<JobTableComponent> {
                                 ],
                               ),
                             ),
-
-                  
-                  
                           ],
                         )
                             // ElevatedButton(
