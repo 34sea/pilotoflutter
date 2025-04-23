@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pilotoflutter/view/PostExample.dart';
 import 'package:pilotoflutter/view/comments_view.dart';
 import 'package:pilotoflutter/view/operation_view.dart';
 import 'package:pilotoflutter/view/posts_table_page_view.dart';
@@ -14,7 +15,7 @@ void main() {
     theme: ThemeData(
       scaffoldBackgroundColor: Colors.white
     ),
-    home: PostsTablePageView(),
+    home: PostExample(),
   ));
 }
 
