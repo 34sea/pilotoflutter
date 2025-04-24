@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pilotoflutter/view/Dialog_view.dart';
 import 'package:pilotoflutter/view/PostExample.dart';
 import 'package:pilotoflutter/view/comments_view.dart';
 import 'package:pilotoflutter/view/operation_view.dart';
+import 'package:pilotoflutter/view/post_js_post_view.dart';
 import 'package:pilotoflutter/view/posts_table_page_view.dart';
 import 'package:pilotoflutter/view/return_data_view.dart';
 import 'package:pilotoflutter/view/table_responsive_teste_view.dart';
@@ -15,7 +17,7 @@ void main() {
     theme: ThemeData(
       scaffoldBackgroundColor: Colors.white
     ),
-    home: PostExample(),
+    home: DialogView(),
   ));
 }
 
