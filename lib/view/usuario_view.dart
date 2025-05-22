@@ -16,6 +16,7 @@ class _UsuarioViewState extends State<UsuarioView>{
   void initState() {
     super.initState();
     user = usuarioViewmodel.fetchUsersl();
+    
   }
   @override
   Widget build(BuildContext context) {
