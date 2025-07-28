@@ -20,6 +20,7 @@ class _PostPageState extends State<PostPageView> {
   void initState() {
     super.initState();
     viewModel.fetchPosts().then((posts) {
+      
       setState(() {
         allPosts = posts;
         filteredPosts = posts;
